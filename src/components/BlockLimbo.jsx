@@ -6,9 +6,7 @@ import { Euler, Quaternion } from "three";
 export default function BlockLimbo(props) {
   //   console.log(props);
   const spinerRef = useRef();
-  const [spin] = useState(
-    () => (Math.random() + 0.2) * (Math.random() > 0.5 ? 1 : -1),
-  );
+  const [offset] = useState(() => Math.random() * Math.PI * 2);
   useFrame((state) => {
     const time = state.clock.getElapsedTime();
 
@@ -16,7 +14,7 @@ export default function BlockLimbo(props) {
     // rotation.setFromEuler(new Euler(0, time * spin, 0));
     spinerRef.current.setNextKinematicTranslation({
       x: 0,
-      y: Math.abs(Math.sin(time * spin)) + 0.2,
+      y: Math.sin(time + offset) + 1.15,
       z: props.position[2],
     });
   });
