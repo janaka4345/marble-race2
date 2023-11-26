@@ -2,10 +2,10 @@ import { useFrame } from "@react-three/fiber";
 import { RigidBody } from "@react-three/rapier";
 import { useRef, useState } from "react";
 
-export default function BlockLimbo(props) {
+export default function BlockAxe(props) {
   //   console.log(props);
   const spinerRef = useRef();
-  const [spin] = useState(
+  const [offset] = useState(
     () => (Math.random() + 0.2) * (Math.random() > 0.5 ? 1 : -1),
   );
   useFrame((state) => {
@@ -14,8 +14,8 @@ export default function BlockLimbo(props) {
     // const rotation = new Quaternion();
     // rotation.setFromEuler(new Euler(0, time * spin, 0));
     spinerRef.current.setNextKinematicTranslation({
-      x: props.position[0],
-      y: props.position[1] + Math.abs(Math.sin(time * spin)) + 0.2,
+      x: props.position[0] + Math.sin(time + offset) * 1.25,
+      y: props.position[1] + 0.8,
       z: props.position[2],
     });
   });
@@ -40,7 +40,7 @@ export default function BlockLimbo(props) {
           <mesh
             geometry={props.boxGeometry}
             material={props.obstacleMaterial}
-            scale={[3.5, 0.2, 0.2]}
+            scale={[1.5, 1.5, 0.2]}
             castShadow
           />
         </RigidBody>
