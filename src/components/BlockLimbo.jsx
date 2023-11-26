@@ -13,8 +13,8 @@ export default function BlockLimbo(props) {
     // const rotation = new Quaternion();
     // rotation.setFromEuler(new Euler(0, time * spin, 0));
     spinerRef.current.setNextKinematicTranslation({
-      x: 0,
-      y: Math.sin(time + offset) + 1.15,
+      x: props.position[0],
+      y: props.position[1] + Math.sin(time + offset) + 1.15,
       z: props.position[2],
     });
   });
