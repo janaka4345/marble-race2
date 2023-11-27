@@ -10,6 +10,12 @@ export default function BlockStart(props) {
           scale={[4, 0.2, 4]}
           receiveShadow
         />
+        {/* <RigidBody type="fixed" position={[0, 1, -5]}>
+          <mesh>
+            <boxGeometry args={[2, 1, 2]} />
+            <meshBasicMaterial color="red" />
+          </mesh>
+        </RigidBody> */}
       </group>
     </>
   );

@@ -13,7 +13,7 @@ const floorMaterial02 = new MeshStandardMaterial({ color: "greenyellow" });
 const obstacleMaterial = new MeshStandardMaterial({ color: "red" });
 const wallMaterial01 = new MeshStandardMaterial({ color: "gray" });
 
-export default function BlockLevel() {
+export default function BlockLevel(props) {
   return (
     <>
       <BlockStart
